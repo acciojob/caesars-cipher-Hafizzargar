@@ -32,10 +32,28 @@ const lookup = {
 };
 
 function rot13(encodedStr) {
-  let decodedArr = []; // Your Result goes here
+   // Your Result goes here
   // Only change code below this line
+	  let decodedStr = "";
 
-  return; //return decodedArr
+  // Loop through each character in the input string
+  for (let i = 0; i < encodedStr.length; i++) {
+    const char = encodedStr[i];
+
+    // Check if the character is in the lookup object
+    if (lookup.hasOwnProperty(char)) {
+      // If it's a letter, append the corresponding ROT13 value to the result
+      decodedStr += lookup[char];
+    } else {
+      // If it's not a letter, append the character itself (e.g., space, punctuation)
+      decodedStr += char;
+    }
+  }
+
+  // Return the decoded string
+  return decodedStr;
+
+//return decodedArr
 }
 
 // You can test your code by running the above function and printing it to console by pressing the run button at the top. To run it with input 36, uncomment the following line
